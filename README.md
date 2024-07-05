@@ -19,6 +19,6 @@ Este é o meu portfólio, onde apresento minhas habilidades e projetos como dese
 
 ## Autor
 
-- João Victor MArtins Silva Fernandes
+- João Victor Martins Silva Fernandes
 - GitHub: [jaovic](https://github.com/jaovic)
 
