@@ -2,6 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../ThemeContext";
+import { BsMoonStarsFill } from "react-icons/bs";
+import { LiaFlagUsaSolid } from "react-icons/lia";
+import { FiSun } from "react-icons/fi";
+import { GiBrazilFlag } from "react-icons/gi";
 
 const HeaderContainer = styled.header`
 	background: ${({ theme }) => theme.colors.header};
@@ -11,11 +15,13 @@ const HeaderContainer = styled.header`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	height: 4rem;
+	box-shadow: 0 4px 10px -4px ${({ theme }) => theme.colors.header};
 `;
 
 const Title = styled.h1`
 	font-family: "Montserrat", sans-serif;
-	font-size: 2.5rem;
+	font-size: 1.5rem;
 	font-weight: 700;
 `;
 
@@ -28,15 +34,21 @@ const StyledButton = styled.button`
 	background: ${({ theme }) => theme.colors.headerText};
 	color: ${({ theme }) => theme.colors.header};
 	border: 2px solid ${({ theme }) => theme.colors.headerText};
-	border-radius: 5px;
-	padding: 0.5rem 1rem;
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	padding: 0.25rem 0.5rem;
 	cursor: pointer;
-	font-size: 1rem;
-	transition: background 0.3s, color 0.3s;
+	transition: background 0.3s, color 0.3s, transform 0.3s;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
 	&:hover {
 		background: ${({ theme }) => theme.colors.header};
 		color: ${({ theme }) => theme.colors.headerText};
+		transform: scale(1.05);
 	}
 
 	&:focus {
@@ -58,10 +70,14 @@ const Header: React.FC = () => {
 			<Title>{i18n.t("title")}</Title>
 			<ButtonContainer>
 				<StyledButton onClick={toggleTheme}>
-					{darkMode ? "Light Mode" : "Dark Mode"}
+					{darkMode ? <FiSun size={20} /> : <BsMoonStarsFill size={20} />}
 				</StyledButton>
-				<StyledButton onClick={() => changeLanguage("pt")}>PT</StyledButton>
-				<StyledButton onClick={() => changeLanguage("en")}>EN</StyledButton>
+				<StyledButton onClick={() => changeLanguage("pt")}>
+					<GiBrazilFlag size={20} />
+				</StyledButton>
+				<StyledButton onClick={() => changeLanguage("en")}>
+					<LiaFlagUsaSolid size={20} />
+				</StyledButton>
 			</ButtonContainer>
 		</HeaderContainer>
 	);

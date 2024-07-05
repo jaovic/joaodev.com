@@ -6,6 +6,7 @@ const FooterContainer = styled.footer`
 	color: ${({ theme }) => theme.colors.headerText};
 	padding: 1rem 2rem;
 	text-align: center;
+	height: 3rem;
 `;
 
 const Footer: React.FC = () => {

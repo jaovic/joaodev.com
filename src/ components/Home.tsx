@@ -12,7 +12,8 @@ const HomeContainer = styled.main`
 	padding: 2rem;
 	min-height: calc(100vh - 8rem);
 	margin: 0 2rem;
-	padding-top: 10rem;
+	padding-top: 6rem;
+	min-height: calc(100vh - 7rem);
 `;
 
 const CircleContainer = styled.div`
@@ -31,10 +32,24 @@ const Circle = styled.div`
 `;
 
 const Description = styled.div`
+	width: 600px;
+	min-width: 600px;
 	max-width: 600px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
 `;
 
 const ExperienceSection = styled.section`
+	width: 100%;
+	padding-left: 2rem;
+	text-align: left;
+	margin-top: 2rem;
+`;
+
+const AboutSection = styled.section`
 	text-align: left;
 	margin-top: 2rem;
 `;
@@ -54,6 +69,9 @@ const Home: React.FC = () => {
 				<h2>{t("experience")}</h2>
 				<ExperienceSection>
 					<h3>{t("position")}</h3>
+					<AboutSection>
+						<p>{t("description")}</p>
+					</AboutSection>
 				</ExperienceSection>
 			</Description>
 		</HomeContainer>
