@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-import { useTheme } from "../ThemeContext";
 
 const HomeContainer = styled.main`
 	display: flex;
@@ -17,7 +16,7 @@ const HomeContainer = styled.main`
 `;
 
 const CircleContainer = styled.div`
-	flex: 0 0 auto; /* Não se expande, tamanho automático */
+	flex: 0 0 auto;
 `;
 
 const Circle = styled.div`
@@ -56,13 +55,16 @@ const AboutSection = styled.section`
 
 const Home: React.FC = () => {
 	const { t } = useTranslation();
-	const { darkMode } = useTheme();
 
 	return (
 		<HomeContainer>
 			<CircleContainer>
 				<Circle>
-					<img src="caminho/para/imagem.jpg" alt="Foto" />
+					<img
+						src="image/foto.jpg"
+						alt="Foto"
+						style={{ width: "100%", height: "auto" }}
+					/>
 				</Circle>
 			</CircleContainer>
 			<Description>
