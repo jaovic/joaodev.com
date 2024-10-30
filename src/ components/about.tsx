@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
-const AboutContainer = styled.main`
+const AboutContainer = styled.section`
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
