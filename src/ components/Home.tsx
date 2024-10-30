@@ -1,22 +1,44 @@
 import React from "react";
 import styled from "styled-components";
-import { useTranslation } from "react-i18next";
 
 const HomeContainer = styled.main`
-	background: ${({ theme }) => theme.colors.body};
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	background: blue;
 	color: ${({ theme }) => theme.colors.text};
-	text-align: center;
 	padding: 2rem;
-	min-height: calc(100vh - 8rem);
+	min-height: calc(100vh - 4rem);
+	margin: 0 2rem;
+	padding-top: 6rem;
+`;
+
+const ContentContainer = styled.div`
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+`;
+
+const TextContainer = styled.div`
+	flex: 1;
+	padding-right: 2rem;
+`;
+
+const ImageContainer = styled.div`
+	flex: 1;
+	display: flex;
+	justify-content: flex-end;
 `;
 
 const Home: React.FC = () => {
-	const { t } = useTranslation();
-
 	return (
 		<HomeContainer>
-			<h2>{t("welcome")}</h2>
-			<p>{t("description")}</p>
+			<ContentContainer>
+				<TextContainer>
+					<p>Seu texto aqui</p>
+				</TextContainer>
+				<ImageContainer></ImageContainer>
+			</ContentContainer>
 		</HomeContainer>
 	);
 };

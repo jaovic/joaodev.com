@@ -12,6 +12,8 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Arial', sans-serif;
     background-color: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text};
+    width: 100%;
+    height: 100%;
   }
 `;
 
