@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 
 const AboutContainer = styled.section`
 	display: flex;
@@ -15,7 +15,7 @@ const AboutContainer = styled.section`
 `;
 
 const Projects: React.FC = () => {
-	const { t } = useTranslation();
+	// const { t } = useTranslation();
 
 	return <AboutContainer id="projects"></AboutContainer>;
 };
