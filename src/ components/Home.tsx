@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const HomeContainer = styled.main`
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: center;
 	align-items: center;
 	color: ${({ theme }) => theme.colors.text};
 	padding: 2rem;
@@ -14,19 +14,14 @@ const HomeContainer = styled.main`
 
 const ContentContainer = styled.div`
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	width: 100%;
 `;
 
 const TextContainer = styled.div`
 	flex: 1;
-	padding-right: 2rem;
-`;
-
-const ImageContainer = styled.div`
-	flex: 1;
-	display: flex;
-	justify-content: flex-end;
+	max-width: 600px;
+	text-align: center;
 `;
 
 const Home: React.FC = () => {
@@ -34,9 +29,22 @@ const Home: React.FC = () => {
 		<HomeContainer id="home">
 			<ContentContainer>
 				<TextContainer>
-					<p>Seu texto aqui</p>
+					<p>
+						Meu nome é <strong>João Victor Martins</strong>, desenvolvedor{" "}
+						<strong>Full Stack</strong> com paixão por tecnologia desde criança.{" "}
+						<br />
+						<br />
+						Iniciei minha carreira no <strong>Back-End</strong>, aprofundando-me
+						em <strong>segurança da informação</strong> e{" "}
+						<strong>redes de computadores</strong>. Minha experiência abrange
+						arquitetura de sistemas, proteção de dados e integração de serviços.{" "}
+						<br />
+						<br />
+						No <strong>Front-End</strong>, aplico boas práticas para garantir
+						interfaces eficientes e responsivas, sempre focado em desempenho e
+						segurança.
+					</p>
 				</TextContainer>
-				<ImageContainer></ImageContainer>
 			</ContentContainer>
 		</HomeContainer>
 	);
