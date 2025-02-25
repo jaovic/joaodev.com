@@ -6,7 +6,6 @@ const AboutContainer = styled.section`
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	background: pink;
 	color: ${({ theme }) => theme.colors.text};
 	padding: 2rem;
 	margin: 0 2rem;

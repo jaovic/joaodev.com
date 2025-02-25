@@ -5,7 +5,6 @@ const HomeContainer = styled.main`
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	background: blue;
 	color: ${({ theme }) => theme.colors.text};
 	padding: 2rem;
 	min-height: calc(100vh - 4rem);
@@ -32,7 +31,7 @@ const ImageContainer = styled.div`
 
 const Home: React.FC = () => {
 	return (
-		<HomeContainer>
+		<HomeContainer id="home">
 			<ContentContainer>
 				<TextContainer>
 					<p>Seu texto aqui</p>

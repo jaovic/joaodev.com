@@ -7,6 +7,7 @@ import { LiaFlagUsaSolid } from "react-icons/lia";
 import { FiSun } from "react-icons/fi";
 import { GiBrazilFlag } from "react-icons/gi";
 import { FaBars } from "react-icons/fa";
+import { Link } from "react-scroll";
 
 const HeaderContainer = styled.header`
 	background: ${({ theme }) => theme.colors.header};
@@ -19,6 +20,10 @@ const HeaderContainer = styled.header`
 	height: 4rem;
 	width: 100%;
 	box-shadow: 0 4px 10px -4px ${({ theme }) => theme.colors.header};
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
 `;
 
 const Logo = styled.h1`
@@ -29,37 +34,38 @@ const Logo = styled.h1`
 
 const NavBar = styled.nav<{ isOpen: boolean }>`
 	display: flex;
-	flex-direction: column; /* Muda para coluna em mobile */
+	flex-direction: column;
 	gap: 1.5rem;
-	position: absolute; /* Para posicionar o menu em mobile */
-	top: 4rem; /* Abaixo do cabeçalho */
+	position: absolute;
+	top: 4rem;
 	left: 0;
 	right: 0;
-	background: ${({ theme }) => theme.colors.header}; /* Cor de fundo do menu */
+	background: ${({ theme }) => theme.colors.header};
 	padding: ${({ isOpen }) => (isOpen ? "1rem" : "0")};
 	transition: max-height 0.3s ease;
-	max-height: ${({ isOpen }) =>
-		isOpen ? "200px" : "0"}; /* Controla a visibilidade */
-	overflow: hidden; /* Oculta o conteúdo que excede o max-height */
+	max-height: ${({ isOpen }) => (isOpen ? "200px" : "0")};
+	overflow: hidden;
 
 	@media (min-width: 768px) {
-		flex-direction: row; /* Exibe em linha em telas maiores */
-		position: initial; /* Restaura a posição normal */
-		max-height: none; /* Remove o limite de altura */
+		flex-direction: row;
+		position: initial;
+		max-height: none;
 	}
 `;
 
-const NavLink = styled.a`
+const StyledLink = styled(Link)`
 	color: ${({ theme }) => theme.colors.headerText};
 	text-decoration: none;
 	font-size: 1rem;
-	transition: color 0.3s;
+	transition: color 0.3s ease, transform 0.2s ease;
+	font-family: "Saira", sans-serif;
+	font-weight: 400;
+	cursor: pointer;
 
 	&:hover {
 		color: ${({ theme }) => theme.colors.primary};
+		transform: scale(1.05);
 	}
-	font-family: "Saira", sans-serif;
-	font-weight: 400;
 `;
 
 const ButtonContainer = styled.div`
@@ -119,19 +125,31 @@ const Header: React.FC = () => {
 
 	return (
 		<HeaderContainer>
-			<Logo>{i18n.t("title")}</Logo>
+			<StyledLink to="home" smooth={true} duration={500}>
+				<Logo>{i18n.t("title")}</Logo>
+			</StyledLink>
 			<ToggleButton onClick={() => setIsOpen(!isOpen)}>
 				<FaBars />
 			</ToggleButton>
 			<NavBar isOpen={isOpen}>
-				<NavLink href="/">{i18n.t("home")}</NavLink>
-				<NavLink href="#about" style={{ transition: "color 0.8s" }}>
+				<StyledLink to="home" smooth={true} duration={500} offset={-64}>
+					{i18n.t("home")}
+				</StyledLink>
+				<StyledLink to="about" smooth={true} duration={500} offset={-64}>
 					{i18n.t("about")}
-				</NavLink>
-				<NavLink href="#experience">{i18n.t("experience")}</NavLink>
-				<NavLink href="#projects">{i18n.t("projects")}</NavLink>
-				<NavLink href="#skills">{i18n.t("skills")}</NavLink>
-				<NavLink href="#contact">{i18n.t("contact")}</NavLink>
+				</StyledLink>
+				<StyledLink to="experience" smooth={true} duration={500} offset={-64}>
+					{i18n.t("experience")}
+				</StyledLink>
+				<StyledLink to="projects" smooth={true} duration={500} offset={-64}>
+					{i18n.t("projects")}
+				</StyledLink>
+				<StyledLink to="skills" smooth={true} duration={500} offset={-64}>
+					{i18n.t("skills")}
+				</StyledLink>
+				<StyledLink to="contact" smooth={true} duration={500} offset={-64}>
+					{i18n.t("contact")}
+				</StyledLink>
 			</NavBar>
 			<ButtonContainer>
 				<StyledButton onClick={toggleTheme}>
